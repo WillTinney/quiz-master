@@ -1,0 +1,26 @@
+<div class="navbar-wagon navbar-wagon-fixed">
+
+  <!-- Logo -->
+  <%= link_to root_path, class: "navbar-wagon-brand" do %>
+    <%= image_tag "logo.png" %>
+  <% end %>
+
+  <!-- Right Navigation -->
+  <div class="navbar-wagon-right hidden-xs hidden-sm">
+
+    <!-- Different navigation if logged-in or not -->
+    <% if user_signed_in? %>
+      <div class="navbar-wagon-item ">
+        <%= link_to destroy_user_session_path, method: :delete do %>
+          <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+        <% end %>
+      </div>
+    <% else %>
+      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <% end %>
+
+    <!-- Quiz Button -->
+    <%= link_to "Take Quiz", new_user_question_path(current_user), class: "navbar-wagon-item navbar-wagon-button btn" if current_user  %>
+  </div>
+</div>
+
