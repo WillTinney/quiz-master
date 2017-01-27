@@ -1,3 +1,18 @@
 // Place all the styles related to the questions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.card {
+  height: 220px;
+  margin: 20px 0;
+  box-shadow: 0px 0px 10px 0px rgba(50, 50, 50, 0.1);
+  border-radius: 2px;
+  background-size: cover !important;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.invisible {
+  display: none;
+}
