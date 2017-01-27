@@ -5,13 +5,20 @@
   <% @questions.each do |question| %>
     <div class="col-xs-12 col-sm-6">
       <div class="card">
+        <div class="card-buttons">
+          <%= link_to edit_user_question_path(@user, question) do %>
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+          <% end %>
+          <%= link_to edit_user_question_path(@user, question) do %>
+            <i class="fa fa-trash" aria-hidden="true"></i>
+          <% end %>
+        </div>
+
         <h3><%= question.content %></h3>
-        <%= link_to "#", class: "btn btn-info" do %>
-          <h4 data-show-id="<%= question.id %>">Show Answer!</h4>
-          <h4 data-answer-id="<%= question.id %>"></h4>
+        <%= link_to "#", class: "btn btn-info show-button", "data-show-id": question.id do %>
+          <h4>Show Answer!</h4>
         <% end %>
-        <%= link_to "Edit", edit_user_question_path(@user, question) %>
-        <%= link_to "Delete", edit_user_question_path(@user, question) %>
+        <h1 data-answer-id="<%= question.id %>" class="invisible"><strong><%= question.answer.capitalize %></strong></h1>
       </div>
     </div>
   <% end %>
@@ -22,5 +29,18 @@
       <div class="note-form" id="new-note-form"></div>
     </div>
   </div>
-
 </div>
+
+<%= content_for(:after_js) do %>
+  <script>
+    $('.show-button').click(function(e){
+      e.preventDefault();
+
+      var answerButton = $(this);
+      var answerId = answerButton.data('showId');
+
+      answerButton.remove();
+      $("*[data-answer-id=" + answerId + "]").removeClass('invisible');
+    });
+  </script>
+<% end %>
