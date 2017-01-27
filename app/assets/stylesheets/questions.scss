@@ -2,6 +2,23 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.wrapper {
+  background: #78C0E0;
+  background-size: cover;
+  min-height: 962px;
+}
+.header {
+  margin-top: 50px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  h1 {
+    font-weight: bold;
+  }
+}
+#add-question {
+  margin-top: 25px;
+}
 .card {
   position: relative;
   height: 220px;

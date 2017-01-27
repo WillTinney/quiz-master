@@ -1,3 +1,28 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.card {
+  box-shadow: 0px 5px 15px 0px rgba(50, 50, 50, 0.1);
+  border-radius: 5px;
+  background-size: cover !important;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.home-card {
+  margin: 100px 0;
+  height: 220px;
+  width: 500px;
+}
+.login-card {
+  margin: 100px 0;
+  height: 300px;
+  width: 250px;
+}
+.center-card {
+  display: flex;
+  justify-content: center;
+}
