@@ -38,6 +38,9 @@ gem 'redis', '~> 3.0'
 # Devise for user sign-in
 gem 'devise'
 
+# Easier forms
+gem 'simple_form'
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem 'capybara'
