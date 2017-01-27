@@ -38,11 +38,15 @@ gem 'redis', '~> 3.0'
 # Devise for user sign-in
 gem 'devise'
 
+# Easier forms
+gem 'simple_form'
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem 'capybara'
   gem 'poltergeist'
   gem 'launchy'
+  gem 'factory_girl_rails'
   gem 'minitest-reporters'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
