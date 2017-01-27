@@ -46,6 +46,7 @@ group :development, :test do
   gem 'capybara'
   gem 'poltergeist'
   gem 'launchy'
+  gem 'factory_girl_rails'
   gem 'minitest-reporters'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri

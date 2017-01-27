@@ -1,0 +1,7 @@
+<h2>Edit User</h2>
+
+<%= simple_form_for([@user, @question]) do |f| %>
+  <%= f.input :content %>
+  <%= f.input :answer %>
+  <%= f.button :submit %>
+<% end %>
