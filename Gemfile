@@ -35,6 +35,9 @@ gem 'redis', '~> 3.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Devise for user sign-in
+gem 'devise'
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem 'capybara'
