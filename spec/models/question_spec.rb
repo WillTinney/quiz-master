@@ -7,7 +7,7 @@ RSpec.describe Question, type: :model do
   end
 
   it "Question should have the right content" do
-    expect(@question.question).to eq("What number is the Roman Numeral, 'V'?")
+    expect(@question.content).to eq("What number is the Roman Numeral, 'V'?")
   end
 
   it "Question should have the right answer" do
