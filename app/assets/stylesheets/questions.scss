@@ -35,6 +35,10 @@
 .show-button {
   margin-top: 30px;
 }
+.card-answer {
+  margin: 0 auto 12px auto;
+  text-align: center;
+}
 .card-buttons {
   position: absolute;
   top: 8px;
@@ -46,4 +50,5 @@
 }
 .invisible {
   display: none;
+  margin-top: 0
 }

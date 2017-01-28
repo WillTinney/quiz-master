@@ -8,8 +8,7 @@ var QuestionCard = React.createClass({
           </div>
 
           <h3>{this.props.question.content}</h3>
-          <h4>Show Answer!</h4>
-          <h1 className="invisible"><strong>{this.props.question.answer}</strong></h1>
+          <ShowAnswer question={this.props.question} key={this.props.question.id}/>
         </div>
       </div>
     );
