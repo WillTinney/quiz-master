@@ -1,0 +1,7 @@
+<div class="form">
+  <%= simple_form_for([@user, @question]) do |f| %>
+    <%= f.input :content, label: 'Question: ', label_html: { class: 'question-label' }, input_html: { class: 'form-field' } %>
+    <%= f.input :answer, label: 'Answer: ', label_html: { class: 'answer-label' }, input_html: { class: 'form-field' } %>
+    <%= f.button :submit, class: 'btn btn-info form-submit' %>
+  <% end %>
+</div>

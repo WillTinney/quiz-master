@@ -3,7 +3,7 @@
     <div class="header">
       <h1>My Questions</h1>
       <div id="add-question">
-        <%= link_to "Add Question", new_user_question_path(@user), class: "btn btn-success" %>
+        <%= link_to "Add Question", new_user_question_path(@user), class: "btn btn-success", remote: true %>
       </div>
     </div>
     <hr>
@@ -11,16 +11,12 @@
   </div>
 </div>
 
-<%= content_for(:after_js) do %>
-  <script>
-    $('.show-button').click(function(e){
-      e.preventDefault();
-
-      var answerButton = $(this);
-      var answerId = answerButton.data('showId');
-
-      answerButton.remove();
-      $("*[data-answer-id=" + answerId + "]").removeClass('invisible');
-    });
-  </script>
+<% @questions.each do |question| %>
+  <%= link_to edit_user_question_path(@user, question), remote: true do %>
+    <i class="fa fa-pencil" aria-hidden="true"></i>
+  <% end %>
+  <%= link_to user_question_path(@user, question), method: :delete do %>
+    <i class="fa fa-trash" aria-hidden="true"></i>
+  <% end %>
 <% end %>
+

@@ -1,0 +1,3 @@
+$('#card-<%= @question.id %>').empty()
+
+$('#edit-<%= @question.id %>').html("<%= j (render 'questions/form')%>");

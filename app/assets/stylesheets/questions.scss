@@ -27,6 +27,9 @@
   border-radius: 2px;
   background-size: cover !important;
   background: white;
+  text-align: center;
+}
+.card-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -47,6 +50,34 @@
     font-size: 18px;
     margin: 0 5px;
   }
+}
+.form label {
+    font-size: 20px;
+}
+.form-field {
+  margin: 5px 0;
+  width: 175px;
+}
+@media (min-width: 992px) {
+  .form-field {
+    margin: 5px 0;
+    width: 250px;
+  }
+}
+@media (min-width: 1200px) {
+  .form-field {
+    margin: 5px 0;
+    width: 350px;
+  }
+}
+.form-submit {
+  margin-top: 20px;
+}
+.question-label {
+  margin-right: 10px;
+}
+.answer-label {
+  margin-right: 23px;
 }
 .invisible {
   display: none;
