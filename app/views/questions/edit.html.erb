@@ -1,9 +1,0 @@
-<div class="container text-center include-navbar">
-  <h2>Edit Question</h2>
-
-  <%= simple_form_for([@user, @question]) do |f| %>
-    <%= f.input :content %>
-    <%= f.input :answer %>
-    <%= f.button :submit %>
-  <% end %>
-</div>
