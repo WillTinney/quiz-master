@@ -3,43 +3,20 @@
     <div class="header">
       <h1>My Questions</h1>
       <div id="add-question">
-        <%= link_to "Add Question", new_user_question_path(@user), class: "btn btn-success" %>
+        <%= link_to "Add Question", new_user_question_path(@user), class: "btn btn-success", remote: true %>
       </div>
     </div>
     <hr>
-    <% @questions.each do |question| %>
-      <div class="col-xs-12 col-sm-6">
-        <div class="card">
-          <div class="card-buttons">
-            <%= link_to edit_user_question_path(@user, question) do %>
-              <i class="fa fa-pencil" aria-hidden="true"></i>
-            <% end %>
-            <%= link_to edit_user_question_path(@user, question) do %>
-              <i class="fa fa-trash" aria-hidden="true"></i>
-            <% end %>
-          </div>
-
-          <h3><%= question.content %></h3>
-          <%= link_to "#", class: "btn btn-info show-button", "data-show-id": question.id do %>
-            <h4>Show Answer!</h4>
-          <% end %>
-          <h1 data-answer-id="<%= question.id %>" class="invisible"><strong><%= question.answer.capitalize %></strong></h1>
-        </div>
-      </div>
-    <% end %>
+      <%= react_component 'QuestionList', render(template: 'questions/index.json.jbuilder') %>
   </div>
 </div>
 
-<%= content_for(:after_js) do %>
-  <script>
-    $('.show-button').click(function(e){
-      e.preventDefault();
-
-      var answerButton = $(this);
-      var answerId = answerButton.data('showId');
-
-      answerButton.remove();
-      $("*[data-answer-id=" + answerId + "]").removeClass('invisible');
-    });
-  </script>
+<% @questions.each do |question| %>
+  <%= link_to edit_user_question_path(@user, question), remote: true do %>
+    <i class="fa fa-pencil" aria-hidden="true"></i>
+  <% end %>
+  <%= link_to user_question_path(@user, question), method: :delete do %>
+    <i class="fa fa-trash" aria-hidden="true"></i>
+  <% end %>
 <% end %>
+

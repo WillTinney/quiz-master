@@ -4,7 +4,7 @@ User.create!(
   )
 Question.create!(
   content: "What number is the Roman Numeral, 'V'?",
-  answer: "five",
+  answer: "Five",
   user_id: "1"
   )
 Question.create!(
