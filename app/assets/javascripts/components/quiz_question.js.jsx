@@ -1,7 +1,8 @@
 var QuizQuestion = React.createClass({
   getInitialState: function() {
     return {
-      userAnswer: ""
+      userAnswer: "",
+      correct: ""
     }
   },
   setAnswer: function(e) {
@@ -9,30 +10,31 @@ var QuizQuestion = React.createClass({
       userAnswer: e.target.value
     });
   },
-  correct: function() {
-    alert('correct!');
-  },
   validateAnswer: function(answer) {
+    answer.preventDefault();
     var correctAnswer  = this.props.question.answer;
     var userAnswer = this.state.userAnswer;
     if (userAnswer == correctAnswer) {
-      correct
+      correct();
+      this.setState({ correct: "correct"});
     }
     else if (userAnswer.toLowerCase() == correctAnswer.toLowerCase()) {
-      correct
-      // Empty card html
-      // Add tick animation to card
+      correct();
+      this.setState({ correct: "correct"});
     }
+    // Word to number converter
     else if (wordConvert(userAnswer.toLowerCase()) == correctAnswer) {
-      correct
-      // int.toWord == correctAnswer.toLowerCase
+      correct();
+      this.setState({ correct: "correct"});
     }
+    // Number to word converter
     else if (numConvert(userAnswer) == correctAnswer.toLowerCase()) {
-      correct
-      // word.toNum == correctAnswer
+      correct();
+      this.setState({ correct: "correct"});
     }
     else {
-      alert('nope')
+      incorrect();
+      this.setState({ correct: "incorrect"});
     }
   },
   render: function() {
@@ -42,7 +44,7 @@ var QuizQuestion = React.createClass({
           <div className="card-content" id={"card-" + this.props.question.id}>
             <h3>{this.props.question.content}</h3>
             <form action="" onSubmit={this.validateAnswer} id={"answer-" + this.props.question.id}>
-              <input type="text" placeholder="Enter your answer!" className="answer-input" value={this.state.userAnswer} onChange={this.setAnswer}></input>
+              <input type="text" placeholder="Enter your answer!" className={"answer-input " + this.state.correct} value={this.state.userAnswer} onChange={this.setAnswer}></input>
               <br />
               <button type="submit" className="btn btn-info check-answer">
                 Check answer
@@ -54,6 +56,17 @@ var QuizQuestion = React.createClass({
     );
   }
 });
+
+
+// Answer alerts
+
+function correct() {
+  swal("Good job!", "You got it right!", "success");
+};
+
+function incorrect() {
+  swal("Uh Oh!", "You got it wrong! Try Again.", "error");
+};
 
 
 // Word to Number Conversion Code
