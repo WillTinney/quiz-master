@@ -10,8 +10,4 @@ RSpec.describe User, type: :model do
     expect(@user.email).to eq("test@gmail.com")
   end
 
-  it "User should be redirected to show page on sign-in" do
-
-  end
-
 end

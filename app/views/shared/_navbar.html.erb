@@ -20,7 +20,7 @@
     <% end %>
 
     <!-- Quiz Button -->
-    <%= link_to "Take Quiz", new_user_question_path(current_user), class: "navbar-wagon-item navbar-wagon-button btn" if current_user  %>
+    <%= link_to "Take Quiz", user_test_path(current_user), class: "navbar-wagon-item navbar-wagon-button btn" if current_user  %>
   </div>
 </div>
 

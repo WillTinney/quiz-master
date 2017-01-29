@@ -17,6 +17,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass'
 gem 'font-awesome-rails'
 gem 'font-awesome-sass'
+gem 'rails-assets-sweetalert2', source: 'https://rails-assets.org'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'

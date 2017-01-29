@@ -7,16 +7,6 @@
       </div>
     </div>
     <hr>
-      <%= react_component 'QuestionList', render(template: 'questions/index.json.jbuilder') %>
+    <%= react_component 'QuestionList', render(template: 'questions/questions.json.jbuilder') %>
   </div>
 </div>
-
-<% @questions.each do |question| %>
-  <%= link_to edit_user_question_path(@user, question), remote: true do %>
-    <i class="fa fa-pencil" aria-hidden="true"></i>
-  <% end %>
-  <%= link_to user_question_path(@user, question), method: :delete do %>
-    <i class="fa fa-trash" aria-hidden="true"></i>
-  <% end %>
-<% end %>
-

@@ -1,0 +1,12 @@
+<div class="wrapper">
+  <div class="container include-navbar">
+    <div class="header">
+      <h1>Quiz Time!</h1>
+      <div id="end-quiz">
+        <%= link_to "End Quiz", user_questions_path(@user), class: "btn btn-danger" %>
+      </div>
+    </div>
+    <hr>
+    <%= react_component 'Quiz', render(template: 'questions/questions.json.jbuilder') %>
+  </div>
+</div>
