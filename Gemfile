@@ -43,6 +43,9 @@ gem 'redis', '~> 3.0'
 # Devise for user sign-in
 gem 'devise'
 
+# Pundit
+gem 'pundit'
+
 # Easier forms
 gem 'simple_form'
 

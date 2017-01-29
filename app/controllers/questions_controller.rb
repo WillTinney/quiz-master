@@ -3,15 +3,17 @@ class QuestionsController < ApplicationController
   before_action :set_question, only: [ :edit, :update, :destroy ]
 
   def index
-    @questions = @user.questions.all
+    @questions = policy_scope(Question).order(created_at: :desc)
   end
 
   def new
     @question = @user.questions.build
+    authorize @question
   end
 
   def create
     @question = @user.questions.create!(question_params)
+    authorize @question
     if @question.save
       redirect_to user_questions_path(@user)
     else
@@ -20,9 +22,11 @@ class QuestionsController < ApplicationController
   end
 
   def edit
+    authorize @question
   end
 
   def update
+    authorize @question
     if @question.update(question_params)
       redirect_to user_questions_path(@user)
     else
@@ -31,6 +35,7 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
+    authorize @question
     @question.destroy
     redirect_to user_questions_path(@user)
   end
