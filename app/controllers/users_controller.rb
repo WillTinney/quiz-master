@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   def test
     @questions = @user.questions.all
+    authorize @user
   end
 
   private
